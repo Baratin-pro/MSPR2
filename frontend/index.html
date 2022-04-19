@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Chatelet</title>
+</head>
+<body>
+    <h1>Créer votre identifiant Le Chatelet</h1>
+    <form id="form" action="http://localhost:3000/api/user/signup" method="POST">
+        <div>
+            <label for="email">email :</label>
+            <input id="email" type="email" name="email" placeholder="exemple@gmail.com" required>
+        </div>
+        <div>
+            <label for="password">mot de passe : </label>
+            <input id="password" type="password" name="password" placeholder="*******" required>
+            <div>
+                <p id="passwordValidLength" style="color: red;">Le mot de passe doit être compris entre 8 et 32 caractères</p>
+                <p id="passwordValidUppercase" style="color: red;">Le mot de passe doit contenir au moins une majuscule</p>
+                <p id="passwordValidLowercase" style="color: red;">Le mot de passe doit contenir au moins une minuscule</p>
+                <p id="passwordValidNumber" style="color: red;">Le mot de passe doit contenir au moins un nombre</p>
+            </div>
+        </div>
+        <input id="submitSignUp" type="submit" value="S'inscrire">
+    </form>
+    <script src="src/signUp.js"></script>
+</body>
+</html>
