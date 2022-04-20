@@ -29,12 +29,20 @@ exports.signup = async (req,res) => {
         }
         const user = req.body;
         const otpGenerated = generateOTP();
+        const userAgent = req.get('User-Agent');
+        const ip = req.ip;
         const isExisting = await db.user.findOne({ where: { email: user.email }});
         if (isExisting) {
             return res.send('Already existing');
         }
         user.password = bcrypt.hashSync( user.password, 10);
         user.otp = otpGenerated;
+        if(userAgent) {
+            user.userAgent = userAgent;
+        }
+        if(ip) {
+            user.ip = ip;
+        }
         db.user.create(user)
         .then( (newUser) => {
             try {
@@ -85,15 +93,15 @@ exports.login = async (req,res) => {
         if (!passwordValid) {
             return res.status(404).json({ message: 'Email or password invalid' });
         }
-        if (userDb.userAgent !== undefined && userDb.userAgent !== userAgent) {
-            dataUpdated.otp = otpGenerated;
+        if (userDb.userAgent !== userAgent) {
             dataUpdated.userAgent = userAgent;
+            dataUpdated.otp = otpGenerated;
         }
-        if (userDb.ip !== undefined && userDb.ip !== ip) {
+        if (userDb.ip !== ip) {
             dataUpdated.otp = otpGenerated;
             dataUpdated.ip = ip;
         }
-        if (userDb.userAgent === userAgent) {
+        if (userDb.userAgent == userAgent) {
             dataUpdated.active = true;
         }
         userDb.update(dataUpdated)

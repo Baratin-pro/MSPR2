@@ -75,7 +75,7 @@ signUp.form.addEventListener('submit', async (e)=>{
                 password: signUp.inputsForm.inputPassword()
             })
         }).then(()=> {
-            window.location.href="view/login.html"; 
+            window.location.href="../index.html"; 
         })
     }catch(e){
             console.log(e)

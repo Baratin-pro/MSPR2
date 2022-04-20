@@ -48,7 +48,7 @@ login.form.addEventListener('submit', async (e)=>{
         }).then((res) =>{
             console.log(res);
             if (res.status === 200 || res.status === 201) {
-                window.location.href="home.html"; 
+                window.location.href="view/home.html"; 
             } 
             else if (res.status === 429) {
                 login.error.innerHTML = "Trop de tentatives, veuillez réessayer plus tard"
