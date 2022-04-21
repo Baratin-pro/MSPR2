@@ -225,6 +225,18 @@
     margin: 0;
     font-size: 0.7em;
   }
+
+  .errorbg {
+    background-color: rgb(250, 102, 102);
+    border-radius: 4px;
+  }
+  
+  .error--text {
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
   
   .animationRightLeft {
     animation: animationRightLeft 2s ease-in-out infinite;

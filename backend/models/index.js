@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
-require("dotenv").config();
+require('dotenv').config();
 
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize');
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
   {
     host: process.env.HOST,
-    dialect: "mysql",
+    dialect: 'mysql',
 
     operatorsAliases: false,
 
@@ -24,7 +24,7 @@ const sequelize = new Sequelize(
 
 const db = {};
 
-db.user = require("./user")(sequelize, Sequelize);
+db.user = require('./user')(sequelize, Sequelize);
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
