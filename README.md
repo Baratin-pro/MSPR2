@@ -40,4 +40,4 @@ $ npm run start
 
 ## Flow Chart
 
-[The auth flow chart!](/technical%20document/flowChart.png 'Auth flow chart')
+![The auth flow chart](/technical%20document/flowChart.png 'Auth flow chart')
