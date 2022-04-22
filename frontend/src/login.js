@@ -1,3 +1,9 @@
+const ACCESS_TOKEN_KEY = 'ACCESS_TOKEN';
+
+const setToken = (token) => {
+  window.localStorage.setItem(ACCESS_TOKEN_KEY, token);
+};
+
 const login = {
   formValid: document.getElementById('submitLogin'),
   form: document.querySelector('#form'),
@@ -52,6 +58,9 @@ login.form.addEventListener('submit', async (e) => {
       }),
     }).then((res) => {
       if (res.status === 200 || res.status === 201) {
+        res.json().then((token) => {
+          setToken(token.token);
+        });
         window.location.href = 'view/home.html';
       } else if (res.status === 429) {
         login.error.innerHTML = 'Trop de tentatives, veuillez réessayer plus tard';

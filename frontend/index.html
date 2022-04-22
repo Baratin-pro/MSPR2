@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<div class="login-root">
+	<div id="isConnect" class="login-root">
 		<div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
 			<div class="loginbackground box-background--white padding-top--64">
 				<div class="loginbackground-gridContainer">
@@ -60,7 +60,7 @@
 					<div class="formbg">
 						<div class="formbg-inner padding-horizontal--48">
 							<span class="padding-bottom--15">Connectez-vous à votre compte</span>
-							<form id="form" action="http://localhost:3000/api/user/login" method="POST">
+							<form id="form" action="http://localhost:3002/api/user/login" method="POST">
 								<div class="field padding-bottom--24">
 									<label for="email">Email</label>
 									<input id="email" type="email" name="email" placeholder="exemple@gmail.com"
@@ -99,6 +99,5 @@
 	</div>
 </body>
 <script src="./src/login.js"></script>
-</body>
 
 </html>
